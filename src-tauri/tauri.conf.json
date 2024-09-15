@@ -1,0 +1,50 @@
+{
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devPath": "http://localhost:1420",
+    "distDir": "../dist"
+  },
+  "package": {
+    "productName": "hello-world",
+    "version": "0.1.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": false,
+      "shell": {
+        "all": false,
+        "open": true,
+        "sidecar": true,
+        "scope": [
+          {
+            "name": "bin/hello-world-backend",
+            "sidecar": true
+          }
+        ]
+      }
+    },
+    "windows": [
+      {
+        "title": "hello-world",
+        "width": 800,
+        "height": 600
+      }
+    ],
+    "security": {
+      "csp": null
+    },
+    "bundle": {
+      "externalBin": [
+        "bin/hello-world-backend"
+      ],
+      "active": true,
+      "targets": "all",
+      "identifier": "com.hello-world.app",
+      "icon": [
+        "icons/logo.png",
+        "icons/logo.ico"
+      ]
+    }
+  }
+}
